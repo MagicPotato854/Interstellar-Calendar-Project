@@ -5,8 +5,7 @@ body {
   margin-top: 1em;
   width: 70%;
   background-color: rgb(224, 160, 244);
-  background-image: linear-gradient(135deg, rgb(224, 192, 255), rgb(224, 128, 244)),
-                    linear-gradient(90deg, rgb(224, 192, 255), rgb(224, 128, 244));
+  background-image: url('..\assets\Space BG.png');;
   background-position: 0vw 0vw, 100vw 50vw;
   background-size: 100vw 100vw, 200vw 100vw;
   background-repeat: no-repeat, repeat;
