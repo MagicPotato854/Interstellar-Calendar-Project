@@ -1,3 +1,7 @@
+/* Colors */
+
+
+
 /* Elements */
 
 body {
@@ -14,13 +18,13 @@ body {
 }
 
 
-h1 {text-align: center;}
-h2 {font-size: 2em;}
-h3 {font-size: 1.5em;}
+h1 {text-align: center; color: rgb(240, 240, 240);}
+h2 {font-size: 2em; color: rgb(240, 240, 240);}
+h3 {font-size: 1.5em; color: rgb(240, 240, 240);}
 
-p {text-indent: 2em; font-size: 1.5em}
+p {text-indent: 2em; font-size: 1.5em; color: rgb(240, 240, 240);}
 
-form {font-size: 1.5em;}
+form {font-size: 1.5em; color: rgb(240, 240, 240);}
 
 /* Load Animation */
 
@@ -93,7 +97,8 @@ div.navArrow {
   position: sticky;
   top: 0px;
   z-index: 1;
-  background-color: rgba(192, 192, 192, .75);
+  background-color: rgba(240, 240, 240, .75);
+  color: rgb(0, 0, 0);
   padding: 8px;
 }
 
