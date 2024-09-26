@@ -125,3 +125,7 @@ div.navArrow {
   margin: 1em;
   font-family: Consolas;
 }
+
+.ODLog {
+  color: rgb(240, 240, 240);
+}
