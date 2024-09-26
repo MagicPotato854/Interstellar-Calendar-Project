@@ -14,10 +14,12 @@ body {
 
 
 h1 {text-align: center;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.5em;}
 
-p {text-indent: 2em; font-size: 1em}
+p {text-indent: 2em; font-size: 1.5em}
 
-form {font-size: 1em;}
+form {font-size: 1.5em;}
 
 /* Load Animation */
 
