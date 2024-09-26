@@ -7,9 +7,10 @@ body {
   background-color: rgb(224, 160, 244);
   background-image: url('../assets/Space\ BG.png') !important;
   background-attachment: fixed;
-  background-position: 0vw 0vw, 100vw 50vw;
-  background-size: 100vw 100vw, 200vw 100vw;
-  background-repeat: no-repeat, repeat;
+  min-height: 100% !important;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 
