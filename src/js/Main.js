@@ -7,8 +7,8 @@
 const headHTML = `
   <meta charset = "utf-8">
   <meta name = "viewport" content = "width=device-width">
-  <link href = "References/MainStyle.css" rel = "stylesheet" type = "text/css" />
-  <link rel = "icon" href = "References/Icon.png">
+  <link href = "src/css/MainStyle.css" rel = "stylesheet" type = "text/css" />
+  <link rel = "icon" href = "src/assets/Icon.png">
   `;
 
 const bodyHTML = `
