@@ -5,7 +5,8 @@ body {
   margin-top: 1em;
   width: 70%;
   background-color: rgb(224, 160, 244);
-  background-image: url('\src\assets\Space BG.png');
+  background-image: url('\src\assets\Space BG.png') !important;
+  background-attachment: fixed;
   background-position: 0vw 0vw, 100vw 50vw;
   background-size: 100vw 100vw, 200vw 100vw;
   background-repeat: no-repeat, repeat;
@@ -29,19 +30,20 @@ form {font-size: 1.5em;}
     background-color: rgb(224, 160, 244);
   }
   to {
-    background-image: url('\src\assets\Space BG.png');
+    background-attachment: fixed;
+    background-image: url('\src\assets\Space BG.png') !important;
     opacity: 1;
-    background-color: rgb(224, 160, 244);
+    
   }
 }
 
 @keyframes unload {
   from {
-    background-image: url('\src\assets\Space BG.png');
+    background-image: url('\src\assets\Space BG.png') !important;
     opacity: 1;
-    background-color: rgb(224, 160, 244);
   }
   to {
+    background-attachment: fixed;
     background-image: none;
     opacity: 0;
     background-color: rgb(224, 160, 244);
