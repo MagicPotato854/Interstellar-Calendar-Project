@@ -1,0 +1,37 @@
+
+function hours_to_mars(hours) {
+    /*
+    We are going to use a proposed Martian Calendar that is extremely accurate.
+    A year changes between 668 and 669 days. A "Leap Year" occurs every odd
+    year, every year divisable by ten but not divisable by 100.
+    */
+    let year = 0
+    while (hours >= 16497.4731) {
+        year += 1
+        if ((year % 2 != 0 || year % 10 == 0) && year % 100 != 0) {
+            hours -= 16497.4731
+        } else {
+            hours -= 16472.8132
+        }
+    }
+    let day = Math.floor(hours/24.6599)
+    hours -= day * 24.6599
+    let leftovers = hours % 1
+    hours -= leftovers
+    let minutes = Math.floor(leftovers * 60)
+    leftovers -= minutes / 60
+    let seconds = leftovers * 3600
+
+    return [year + 1, parseInt(day + 1), parseInt(hours), minutes, Math.round(seconds/3)]
+}
+
+function print_planet_time(date) {
+    /*
+    Prints a date in human readable format.
+    date should be a tuple formatted like the following:
+    (year, day, hours, minutes, seconds)
+    */
+   console.log(`Year ${date[0]}, day ${date[1]}, ${date[2]}:${date[3]}:${date[4]}`)
+}
+
+print_planet_time(hours_to_mars(100))
