@@ -37,7 +37,7 @@ document.getElementById("valFormA").addEventListener("submit", function (event) 
   let time = new Date(timeInp);
   setFormDate('timeA', time);
   
-  print_planet_time(time);
+  print_planet_time(date_to_mars(time));
   
   stat.style.backgroundColor = "rgb(128, 255, 128)";
   stat.innerHTML = "Calculated";
