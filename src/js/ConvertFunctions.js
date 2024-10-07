@@ -32,7 +32,14 @@ function print_planet_time(date) {
     date should be a tuple formatted like the following:
     (year, day, hours, minutes, seconds)
     */
-   console.log(`Year ${date[0]}, day ${date[1]}, ${date[2]}:${date[3]}:${date[4]}`);
+   out = (`Year ${date[0]}, day ${date[1]}, ${date[2]}:${date[3]}:${date[4]}`);
+   
+   console.log(out);
+   
+   calcOut = document.getElementById("calcOut");
+   
+   calcOut.innerHTML = out;
+   
 }
 
 let date = new Date();
