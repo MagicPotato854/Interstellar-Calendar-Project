@@ -4,13 +4,46 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Python API Testing</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
         <script src="./app.js" async defer></script>
-        <p class="LiveMarsTime"></p>
+
+        <script src="./main.js"></script>
+        
+        <h3>Test Form:</h3>
+
+        <form id="calculator" action="http://localhost:8000/" method="get" ><!--onsubmit="getResultsJson(event)"-->
+            <label for="planet">Planet:</label>
+            <select id="planet" name="planet">
+                <option value="Mars" selected>Mars</option>
+                <option value="Saturn">Saturn</option>
+            </select><br>
+            <label for="time">Time:</label>
+            <input type="text" id="timeA" name="time" value="Wed Jul 16 1969 08:32:00 GMT-0600 (Mountain Daylight Time)">
+            <input type="button" onclick="setFormDate('timeA', new Date())" value="Now"><br>
+            <input type="submit" value="Calculate">
+        </form>
+
+        <div>
+            <br>
+            <label for="planet">Planet:</label>
+            <select name="planet" id="planet">
+                <option value="Mars" selected>Mars</option>
+                <option value="Saturn">Saturn</option>
+            </select>
+            <span>Time:</span>
+            <br>
+            <span>Wed Jul 16 1969 08:32:00 GMT-0600 (Mountain Daylight Time)</span>
+            <br>
+            <button action onclick=""></button>
+        </div>
+
+        <br>
+        <p id="calcOut">[None]</p>
+
     </body>
 </html>
