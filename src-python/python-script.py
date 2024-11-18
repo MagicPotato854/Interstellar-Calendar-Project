@@ -3,7 +3,6 @@ import sys
 from convert_times import Planet
 import time
 from skyfield.api import load
-from skyfield.api import Topos
 
 def calculate():
     json_obj = open(sys.argv[2])
@@ -36,28 +35,32 @@ def calculate():
     print("OK")
 
 def sky_field():
+    # Load ephemeris data
     planets = load('de421.bsp')
+    earth = planets['earth']
+    mars = planets['mars']
+    saturn = planets[6]  # Saturn is the 6th planet
+
+    # Load timescale and get the current time
     ts = load.timescale()
-    t = ts.utc(2018, 11, 28, 0, 0, 0)
-    earth = planets['earth'].at(t)
-    atlanta_p = (planets['earth'] + Topos('33.7490 N', '84.3880 W'))
-    atlanta = atlanta_p.at(t)
+    t = ts.now()
 
-    print('TAI = %r' % (t.tai - 2400000.5))
-    print('TT  = %r' % (t.tt  - 2400000.5))
-    print('UT1 = %r' % (t.ut1 - 2400000.5))
+    # Calculate the distance between Earth and Mars
+    earth_to_mars = earth.at(t).observe(mars).apparent().distance()
+    distance_km = earth_to_mars.km  # Distance in kilometers
+    distance_au = earth_to_mars.au  # Distance in astronomical units
 
-    def dump_pv(p):
-        print(' {{%.12f, %.12f, %.12f},\n'
-            '  {%.12f, %.12f, %.12f}},' %
-            (p.position.au[0], p.position.au[1], p.position.au[2],
-            p.velocity.au_per_d[0], p.velocity.au_per_d[1], p.velocity.au_per_d[2]))
+    print(time.asctime())
+    print(f"Distance between Earth and Mars:")
+    print(f"{distance_km:.2f} km")
+    print(f"{distance_au:.6f} AU")
+    print(f"{(distance_au * 8.31675):.6f} light minutes")
 
-    def dump_altazd(p):
-        print(' {%.12f, %.12f, %.12f},' %
-            (p[0].degrees, p[1].degrees, p[2].au))
-
-if sys.argv[1] == 'calculate':
-    calculate()
+try:
+    if sys.argv[1] == 'calculate':
+        calculate()
+except IndexError:
+    if __name__ == '__main__':
+        sky_field()
 
 sys.stdout.flush()

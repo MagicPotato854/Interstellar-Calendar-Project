@@ -41,14 +41,32 @@ async function calculateTimes() {
         if (!marsResponse.ok) throw new Error(`HTTP error! status: ${marsResponse.status}`);
         const marsData = await marsResponse.json();
 
+
+        const dataString = document.getElementById("dateInput").value;
+        const secs = dateToHoursSinceEpoch(dataString) * 3600;
+
+        const distResponse = await fetch(`http://localhost:5000/dist?date=${secs}?p1=earth?p2=sun?units=l`);
+        if (!distResponse.ok) throw new Error(`HTTP error! status: ${marsResponse.status}`);
+        const distData = await distResponse.json()
+
         // Display results
         document.getElementById("results").innerHTML = `
             <p><strong>Earth Time:</strong> ${earthData.earth_time}</p>
             <p><strong>Mars Time:</strong> Year ${marsData.mars_year}, Day ${marsData.mars_day}, 
             ${marsData.hours}:${marsData.minutes}:${marsData.seconds} (${marsData.formatted_time})</p>
+            <p>${distData.distance}</p>
         `;
     } catch (error) {
         console.error("Error fetching data:", error);
         alert(`There was an error fetching the data: ${error.message}`);
     }
+}
+
+async function calcDistance() {
+    const dataString = document.getElementById("dateInput").value;
+    const secs = dateToHoursSinceEpoch(dataString) * 3600;
+
+    const distResponse = await fetch(`http://localhost:5000/dist?date=${secs}?p1=earth?p2=sun?units=l`);
+    if (!distResponse.ok) throw new Error(`HTTP error! status: ${marsResponse.status}`);
+    const distData = await distResponse.json()
 }
