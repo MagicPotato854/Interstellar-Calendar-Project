@@ -107,7 +107,7 @@ def distcalc2():
     p2 = request.args.get('p2', "sun")
     units = request.args.get('units', "l")
     if date:
-        date = (date / 86400.0) + 2440587.5
+        date = (float(date) / 86400.0) + 2440587.5
     planets = {
         "sol": 10,
         "sun": 10,
@@ -128,7 +128,11 @@ def distcalc2():
     }
     planet1 = Horizons(id=planets[p1.lower()], location='500', epochs=date)
     planet2 = Horizons(id=planets[p2.lower()], location='500', epochs=date)
-    return jsonify({'distance': f"The communication time between {p1.title()} and {p2.title()} is {distcalc(planet1, planet2, units)}"})
+    return jsonify({
+                    'distance': distcalc(planet1, planet2, units),
+                    'p1': p1,
+                    'p2': p2,
+                    })
 
 # This block only runs if the script is executed directly
 if __name__ == "__main__":

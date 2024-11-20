@@ -45,7 +45,7 @@ async function calculateTimes() {
         const dataString = document.getElementById("dateInput").value;
         const secs = dateToHoursSinceEpoch(dataString) * 3600;
 
-        const distResponse = await fetch(`http://localhost:5000/dist?date=${secs}?p1=earth?p2=sun?units=l`);
+        const distResponse = await fetch(`http://localhost:5000/dist?date=${secs}&p1=earth&p2=sun&units=l`);
         if (!distResponse.ok) throw new Error(`HTTP error! status: ${marsResponse.status}`);
         const distData = await distResponse.json()
 
@@ -54,7 +54,7 @@ async function calculateTimes() {
             <p><strong>Earth Time:</strong> ${earthData.earth_time}</p>
             <p><strong>Mars Time:</strong> Year ${marsData.mars_year}, Day ${marsData.mars_day}, 
             ${marsData.hours}:${marsData.minutes}:${marsData.seconds} (${marsData.formatted_time})</p>
-            <p>${distData.distance}</p>
+            <p>The distance between ${distData.p1} and ${distData.p2} is ${distData.distance}</p>
         `;
     } catch (error) {
         console.error("Error fetching data:", error);
