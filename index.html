@@ -1,71 +1,22 @@
 <!DOCTYPE html>
-<html lang = "en-US">
-
+<html lang="en">
 <head>
-  <title>Cosmic Calendars</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planetary Time Calculator</title>
 </head>
+<body>
+    <h1>Planetary Time Calculator</h1>
 
-<body style="background-color: rgb(224, 160, 244);">
-  
-  <div id="link" style="text-align: center; font-size: 1.5em; background: rgb(255, 128, 128); position: fixed; width: 25%; right: 1em; bottom: 1em; font-weight: bold;">
-    Java Script does not seem to be linked. Calculation cannot be complete.
-  </div>
-  
-  <script src="src/js/AreFilesLinked.js"></script>
-  
-  <script src="src/js/Main.js"></script>
-  
-  <h1>Cosmic Calendars - Celestial Time Translator</h1>
-  
-  <h3 class="statHead">Status: <span id="stat" style="background-color: rgb(255, 128, 128);">JS not Linked</span></h3>
-  
-  <h2>Input</h2>
-  
-  <h3>Orbit Diagram Selector:</h3>
-  
-  <div class="ODBox"></div>
-  
-  <div id="output" class="log">Scroll: _<br>Section: _<br>Distance: _ km</div>
-  
-  <p id="rDisp">Radius px = km / [rScale]</p>
-  
-  <div class="navigation">
-    <button type="button" onclick="rScaleAdd();" class="nav">+</button>
-    <button type="button" onclick="rScaleSub();" class="nav">-</button>
-  </div>
-  
-  <p id="dDisp">Distance px = km / [dScale]</p>
-  
-  <div class="navigation">
-    <button type="button" onclick="dScaleAdd();" class="nav">+</button>
-    <button type="button" onclick="dScaleSub();" class="nav">-</button>
-  </div>
-  
-  <script src="src/js/OrbitDiagram.js"></script>
-  
-  <script src="src/js/PlanetData.js"></script>
-  
-  <script src="src/js/ConvertFunctions.js"></script>
-  
-  <p>Navigate To:</p>
-  
-  <div id="scrollNavBar" class="navigation"></div>
-  
-  <h3>Convert Earth time to Mars time:</h3>
-  
-  <form id="valFormA">
-    <label for="time">Time:</label>
-    <input type="text" id="timeA" name="time" value="Wed Jul 16 1969 08:32:00 GMT-0600 (Mountain Daylight Time)">
-    <input type="button" onclick="setFormDate('timeA', new Date())" value="Now"><br>
-    <input type="submit" value="Calculate">
-  </form>
-  
-  <script src="src/js/CosmicCalendar.js"></script>
-  
-  <h3>Mars time:</h3>
-  
-  <p id="calcOut">[None]</p>
-  
+    <label for="dateInput">Enter Date and Time (e.g., "Nov 9 2024 19:17:05"):</label>
+    <input type="text" id="dateInput" placeholder="Enter date and time" />
+
+    <button onclick="setCurrentDate()">Set to Current Date and Time</button>
+    <button onclick="calculateTimes()">Calculate</button>
+
+    <h2>Results</h2>
+    <div id="results"></div>
+
+    <script src="main.js"></script>
 </body>
-
 </html>
